@@ -1,9 +1,23 @@
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.views import View
+
+from apps.user.forms import UserModelForm
+from apps.user.models import User
 
 
-def index(request):
-    return render(request, 'index.html')
+class LoginView(View):
+    """登录视图"""
+    pass
 
 
-def register(request):
-    return render(request, 'register.html')
+class RegisterView(View):
+    """注册视图"""
+
+    def post(self, request, *args, **kwargs):
+        form = UserModelForm(request.POST)
+        if form.is_valid():
+            User.objects.create(**form.cleaned_data)
+            return HttpResponse('注册成功')
+        else:
+            return HttpResponse('注册失败')
