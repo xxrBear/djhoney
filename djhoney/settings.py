@@ -98,6 +98,3 @@ USE_TZ = False
 # 静态文件
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
-# 定义user模型
-AUTH_USER_MODEL = 'user.User'

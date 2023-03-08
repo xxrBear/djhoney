@@ -3,21 +3,26 @@
 {% block section %}
     <div class="form-box">
         <div class="form-value">
-            <form action="">
+            <form action="{% url 'register' %}" method="post">
                 <h2>注册</h2>
                 <div class="inputbox">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <input type="email" required>
-                    <label for="">Email</label>
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                    <input type="text" required name="nickname">
+                    <label for="">昵称</label>
                 </div>
                 <div class="inputbox">
                     <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" required>
-                    <label for="">Password</label>
+                    <input type="password" required name="password">
+                    <label for="">密码</label>
                 </div>
-                <div class="forget">
-                    <label for=""><input type="checkbox">Remember Me <a href="#">Forget Password</a></label>
-
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" required name="password2">
+                    <label for="">确认密码</label>
+                </div>
+                <button type="submit">注册</button>
+                <div class="register">
+                    <p><a href="{% url 'register' %}"></a></p>
                 </div>
             </form>
         </div>
